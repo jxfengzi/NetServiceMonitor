@@ -1,0 +1,43 @@
+-------------------------------------------
+             编译方法
+-------------------------------------------
+
+Windows平台
+-------------------------------------------
+1、安装tools里的cmake-2.8.4-win32-x86.exe。
+2、运行cmake_gui。
+3、选择source code目录为本目录。
+4、选择build.share目录为本目录里的build.share子目录。
+5、Configure，选择产生VS2008解决方案。
+6、Generate
+7、进入build子目录，用VS2008打开mdnscpp.sln。
+8、编译。
+9、产生的库文件在build.share/output目录里
+
+
+Linux平台
+-------------------------------------------
+1、安装cmake
+2、cd build.share
+3、cmake ..
+4、make
+5、产生的库文件在build.share/output目录里。
+
+
+Android平台
+-------------------------------------------
+1、下载android-ndk-r5c版本
+2、将android-ndk-r5c目录导出到环境变量ANDROID_NDK_PATH。(export ANDROID_NDK_PATH=~/android/android-ndk-r5c-linux_x86)
+3、cd android
+4、ndk-build
+5、最后链接会出错，需要拷贝android-ndk-r5c目录里的
+   sources/cxx-stl/gnu-libstdc++/libs/armeabi/libstdc++.a 到obj/local/armeabi/中。
+6、重新ndk-build
+7、产生的库文件在android/libs/armeabi目录里
+
+ios平台
+-------------------------------------------
+1、cd build.static/build // 进入编译目录（编译静态库）
+2、cmake ..		 // CMAKE产生编译脚本
+3、make			 // 开始编译
+
